@@ -19,3 +19,6 @@ jspm_packages
 # sass
 .sass-cache/
 *.css.map
+
+# Go vendor directory
+vendor/
