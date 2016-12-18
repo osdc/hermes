@@ -3,14 +3,24 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 import routes from '../routes';
 
+// Partials
+import Navbar from '../components/partials/Navbar';
+import Header from '../components/partials/Header';
+import Footer from '../components/partials/Footer';
+
 export default class Root extends Component {
   render() {
     const { store, history } = this.props;
     return (
         <Provider store={store}>
-        <div>
-        <Router history={history} routes={routes} />
-        </div>
+          <div className="container">
+            <Navbar />
+            <Header />
+            <div className="content sized">
+              <Router history={history} routes={routes} />
+            </div>
+            <Footer />
+          </div>
         </Provider>
     );
   }
