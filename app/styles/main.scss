@@ -1,1 +1,122 @@
 // import "base";
+
+/* colors */
+
+$primary-color: #2196f3;
+$accent-color: #e84855;
+$footer-color: #403f4c;
+
+.panel {
+  border: 2px solid $primary-color;
+  border-radius: 5px;
+}
+
+.panel > .panel-heading {
+  background-color: $primary-color;
+  color: white;
+  margin: 0px;
+  padding: 5px;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.footer {
+  background-color: $footer-color;
+  color: white;
+  padding: 30px 0px;
+}
+
+.focus {
+  background-color: $accent-color;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+nav {
+  background-color: $primary-color;
+  color: white;
+  padding: 0px 30px;
+  a:hover, a:link, a:visited, a:active {
+    color: white;
+    text-decoration: none;
+  }
+  li {
+    margin: 10px;
+  }
+  .nav-right {
+    position: absolute;
+    right: 0px;
+  }
+}
+
+/* layout */
+
+.panel > .panel-body {
+  padding: 5%;
+}
+
+.visible-lg {
+  visibility: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  .content, .content > div {
+    display: flex;
+    flex-direction: row;
+  }
+  .visible-lg {
+    visibility: visible;
+  }
+  
+  .main {
+    // flex-grow: 3;
+    width: 75%;
+  }
+
+  .sidebar {
+    // flex-grow: 1;
+    width: 25%;
+  }
+}
+
+.sized {
+  max-width: 992px;
+  margin: auto;
+  padding: 0px 30px;
+}
+
+body {
+  margin: 0px;
+}
+
+nav > ul > li {
+  display: inline-block;
+}
+
+nav > * {
+  display: inline-block;
+}
+
+/* typography */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
+
+.text-center {
+  text-align: center;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Roboto Slab', serif;
+}
