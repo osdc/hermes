@@ -1,10 +1,8 @@
-// import "base";
+@import './_base.scss';
 
 /* colors */
 
-$primary-color: #2196f3;
-$accent-color: #e84855;
-$footer-color: #403f4c;
+@import './_vars.scss';
 
 .panel {
   border: 2px solid $primary-color;
@@ -14,7 +12,7 @@ $footer-color: #403f4c;
 .panel > .panel-heading {
   background-color: $primary-color;
   color: white;
-  margin: 0px;
+  margin: 0;
   padding: 5px;
 }
 
@@ -25,7 +23,7 @@ $footer-color: #403f4c;
 .footer {
   background-color: $footer-color;
   color: white;
-  padding: 30px 0px;
+  padding: 30px 0;
 }
 
 .focus {
@@ -34,10 +32,10 @@ $footer-color: #403f4c;
   border-radius: 3px;
 }
 
-nav {
+.navbar {
   background-color: $primary-color;
   color: white;
-  padding: 0px 30px;
+  padding: 0 30px;
   a:hover, a:link, a:visited, a:active {
     color: white;
     text-decoration: none;
@@ -47,14 +45,14 @@ nav {
   }
   .nav-right {
     position: absolute;
-    right: 0px;
+    right: 2px;
   }
 }
 
 /* layout */
 
 .panel > .panel-body {
-  padding: 5%;
+  padding: 1em;
 }
 
 .visible-lg {
@@ -71,52 +69,32 @@ nav {
   }
   
   .main {
-    // flex-grow: 3;
     width: 75%;
   }
 
   .sidebar {
-    // flex-grow: 1;
     width: 25%;
   }
 }
 
-.sized {
+.container {
   max-width: 992px;
   margin: auto;
-  padding: 0px 30px;
+  padding: 0 30px;
 }
 
 body {
-  margin: 0px;
+  margin: 0;
 }
 
-nav > ul > li {
+.navbar > ul > li {
   display: inline-block;
 }
 
-nav > * {
+.navbar > span, .navbar > ul {
   display: inline-block;
 }
 
-/* typography */
-
-@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Slab');
-
-.text-center {
-  text-align: center;
-}
-
-body {
-  font-size: 16px;
-  line-height: 1.6;
-  font-family: 'Roboto', sans-serif;
-}
-
-h1 {
-  font-size: 48px;
-}
-
-h1, h2, h3, h4 {
-  font-family: 'Roboto Slab', serif;
+.footer {
+  margin-top: 1em;
 }
