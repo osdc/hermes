@@ -5,6 +5,7 @@ const About = () =>
         <div className="main">
             <h2 className="text-primary text-center">Upcoming Events</h2>
             <div className="panel">
+                { // TODO: Replace hardcoded data with data from the backend }
                 <h3 className="panel-heading">
                     <span className="focus">HUB</span> Title of Event
                 </h3>

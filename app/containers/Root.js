@@ -13,10 +13,10 @@ export default class Root extends Component {
     const { store, history } = this.props;
     return (
         <Provider store={store}>
-          <div className="container">
+          <div>
             <Navbar />
             <Header />
-            <div className="content sized">
+            <div className="content container">
               <Router history={history} routes={routes} />
             </div>
             <Footer />
