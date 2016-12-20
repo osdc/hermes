@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () =>
     <div className="navbar">
-        <span className="logo">Hermes</span>
+        <span className="logo"><a href="#">Hermes</a></span>
         <ul className="nav-left visible-lg">
             <li><a href="#">Dashboard</a></li>
             <li><a href="#">Hubs</a></li>
