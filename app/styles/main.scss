@@ -87,12 +87,15 @@ body {
   margin: 0;
 }
 
-.navbar > ul > li {
-  display: inline-block;
+.navbar, .navbar > ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
 }
 
-.navbar > span, .navbar > ul {
-  display: inline-block;
+.navbar > .logo {
+  display: flex;
+  align-items: center;
 }
 
 .footer {
