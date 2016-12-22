@@ -22,8 +22,6 @@
 
 .footer {
   background-color: $footer-color;
-  color: white;
-  padding: 30px 0;
 }
 
 .focus {
@@ -33,7 +31,10 @@
 }
 
 .navbar {
-  background-color: $primary-color;
+    background-color: $primary-color;
+}
+
+.bar {
   color: white;
   padding: 0 30px;
   a:hover, a:link, a:visited, a:active {
@@ -43,9 +44,10 @@
   li {
     margin: 10px;
   }
-  .nav-right {
+  .bar-right {
     position: absolute;
     right: 2px;
+    margin: 10px;
   }
 }
 
@@ -87,17 +89,20 @@ body {
   margin: 0;
 }
 
-.navbar, .navbar > ul {
+.bar, .bar > ul {
   display: flex;
   flex-direction: row;
   list-style: none;
 }
 
-.navbar > .logo {
+.bar > .logo {
   display: flex;
   align-items: center;
 }
 
 .footer {
   margin-top: 1em;
+  .bar-right {
+    margin: 30px;
+  }
 }
