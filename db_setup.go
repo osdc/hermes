@@ -10,16 +10,20 @@ type Users struct {
 	User_Id      int    `gorm:"AUTO_INCREMENT"`
 	Name         string `gorm:"primary_key"`
 	Batch        string
-	is_master    bool
-	EnrollmentNo int64
+	is_master    string
+	EnrollmentNo string
 	Bio          string
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 type Hubs struct {
 	gorm.Model
 	Hub_Id int    `gorm:"AUTO_INCREMENT"`
-	name   string `gorm:"primary_key"`
-	bio    string
+	Name   string `gorm:"primary_key"`
+	Bio    string
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 type Events struct {
@@ -29,12 +33,16 @@ type Events struct {
 	Event       string
 	Description string
 	Date        string
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 type Announcements struct {
 	gorm.Model
 	hub_id      int
 	description string
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 type Roles struct {
@@ -42,6 +50,8 @@ type Roles struct {
 	user_id int
 	hub_id  int
 	Role    string
+	CreatedAt    time.Time
+	UpdatedAt    time.Time
 }
 
 func main() {
