@@ -40,7 +40,7 @@
     color: white;
     text-decoration: none;
   }
-  li {
+  .list-item {
     margin: 10px;
   }
   .bar-right {
@@ -55,7 +55,7 @@
 }
 
 @media only screen and (min-width: 768px) {
-  .content, .content > div {
+  .content > div {
     display: flex;
     flex-direction: row;
   }
@@ -63,7 +63,7 @@
   .visible-lg {
     visibility: visible;
   }
-  
+
   .main {
     width: 75%;
   }
@@ -77,10 +77,6 @@
   max-width: 992px;
   margin: auto;
   padding: 0 30px;
-}
-
-body {
-  margin: 0;
 }
 
 .bar {
