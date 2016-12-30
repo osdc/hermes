@@ -13,6 +13,7 @@ const Register = () =>
         <DatePicker selected={moment()} />
         <input type="text" placeholder="Password/PIN" />
         <button className="btn-accent">Register</button>
+        <a href="#" className="text-center link-accent">Login</a>
       </div>
     </div>
   </div>
