@@ -1,8 +1,8 @@
 import React from 'react';
 
-const About = () =>
+const Dashboard = () =>
   <div>
-    <div className="main">
+    <div className="width-main">
       <h2 className="text-primary text-center">Upcoming Events</h2>
       <div className="panel">
         { /* TODO: Replace hardcoded data with data from the backend */ }
@@ -15,10 +15,10 @@ const About = () =>
         </div>
       </div>
     </div>
-    <div className="sidebar">
+    <div className="width-sidebar">
       <h2 className="text-primary text-center">Trending</h2>
     </div>
   </div>;
 
 
-export default About;
+export default Dashboard;

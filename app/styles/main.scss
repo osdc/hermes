@@ -64,12 +64,16 @@
     visibility: visible;
   }
 
-  .main {
+  .content .width-main {
     width: 75%;
   }
 
-  .sidebar {
+  .content .width-sidebar {
     width: 25%;
+  }
+
+  .content .width-full {
+    width: 100%;
   }
 }
 
@@ -93,9 +97,38 @@
   }
 }
 
-.footer {
-  margin-top: 1em;
-  .bar-right {
-    margin: 30px;
+.footer > .bar-right {
+  margin: 30px;
+}
+
+.box-login {
+  max-width: 400px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+
+  input, button {
+    margin: 10px 0;
+    height: 35px;
+    font-size: 1.2em;
+  }
+}
+
+.btn-accent {
+  background-color: $accent-color;
+  border: 1px solid $accent-color;
+  border-radius: 5px;
+  color: white;
+}
+
+.hermes {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  .content {
+    flex: 1;
+    display: flex;
+    align-items: center;
   }
 }
