@@ -2,10 +2,10 @@
 @import 'vars';
 
 .panel {
-  border: 2px solid $primary-color;
+  border: 2px solid $color-primary;
   border-radius: 5px;
   .panel-heading {
-    background-color: $primary-color;
+    background-color: $color-primary;
     color: white;
     margin: 0;
     padding: 5px;
@@ -16,21 +16,21 @@
 }
 
 .text-primary {
-  color: $primary-color;
+  color: $color-primary;
 }
 
 .footer {
-  background-color: $footer-color;
+  background-color: $color-footer;
 }
 
 .focus {
-  background-color: $accent-color;
+  background-color: $color-accent;
   padding: 4px;
   border-radius: 3px;
 }
 
 .navbar {
-  background-color: $primary-color;
+  background-color: $color-primary;
 }
 
 .bar {
@@ -115,8 +115,9 @@
 }
 
 .btn-accent {
-  background-color: $accent-color;
-  border: 1px solid $accent-color;
+  background-color: $color-accent-light;
+  border: 1px solid $color-accent-light;
+  border-bottom: 3px solid $color-accent;
   border-radius: 5px;
   color: white;
 }
