@@ -9,7 +9,7 @@ import (
 )
 
 func Insert_user(c echo.Context) error {
-	db, err := gorm.Open("postgres", "user=dwaipayan dbname=hermes sslmode=disable password=mera_naam")
+	db, err := gorm.Open("postgres", "user=<yoursudouser> dbname=hermes sslmode=disable password=<yoursudopassword>")
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -24,7 +24,7 @@ func Insert_user(c echo.Context) error {
 }
 
 func Insert_hub(c echo.Context) error {
-	db, err := gorm.Open("postgres", "user=dwaipayan dbname=hermes sslmode=disable password=mera_naam")
+	db, err := gorm.Open("postgres", "user=<yoursudouser> dbname=hermes sslmode=disable password=<yoursudopassword>")
 	if err != nil {
 		panic("failed to connect database")
 	}
@@ -36,7 +36,7 @@ func Insert_hub(c echo.Context) error {
 }
 
 func Insert_event(c echo.Context) error {
-	db, err := gorm.Open("postgres", "user=dwaipayan dbname=hermes sslmode=disable password=mera_naam")
+	db, err := gorm.Open("postgres", "user=<yoursudouser> dbname=hermes sslmode=disable password=<yoursudopassword>")
 	if err != nil {
 		panic("failed to connect database")
 	}
