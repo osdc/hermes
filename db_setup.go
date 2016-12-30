@@ -1,64 +1,21 @@
 package main
 
 import (
+	"fmt"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	_ "github.com/jinzhu/gorm/dialects/postgres"
+	"github.com/wimpykid26/hermes/models"
 )
 
-type Users struct {
-	gorm.Model
-	User_Id      int    `gorm:"AUTO_INCREMENT"`
-	Name         string `gorm:"primary_key"`
-	Batch        string
-	is_master    string
-	EnrollmentNo string
-	Bio          string
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
-}
-
-type Hubs struct {
-	gorm.Model
-	Hub_Id int    `gorm:"AUTO_INCREMENT"`
-	Name   string `gorm:"primary_key"`
-	Bio    string
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
-}
-
-type Events struct {
-	gorm.Model
-	Event_Id    int    `gorm:"AUTO_INCREMENT"`
-	Name        string `gorm:"primary_key"`
-	Event       string
-	Description string
-	Date        string
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
-}
-
-type Announcements struct {
-	gorm.Model
-	hub_id      int
-	description string
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
-}
-
-type Roles struct {
-	gorm.Model
-	user_id int
-	hub_id  int
-	Role    string
-	CreatedAt    time.Time
-	UpdatedAt    time.Time
-}
-
 func main() {
-	db, err := gorm.Open("sqlite3", "hermes.db")
+	db, err := gorm.Open("postgres", "user=<yoursudouser> dbname=hermes sslmode=disable password=<yoursudopassword>")
 	if err != nil {
+		fmt.Println(err)
 		panic("failed to connect database")
 	}
 	defer db.Close()
-	db.AutoMigrate(&Users{}, &Hubs{}, &Announcements{}, &Events{}, &Roles{})
+	db.AutoMigrate(&models.Users{}, &models.Hubs{}, &models.Events{}, &models.Announcements{}, &models.Roles{})
+	db.Model(&models.Users{}).AddForeignKey("User_ID", "Roles(User_Id)", "RESTRICT", "RESTRICT")
+	db.Model(&models.Hubs{}).AddForeignKey("Hub_ID", "Roles(Hub_Id)", "RESTRICT", "RESTRICT")
+	db.Model(&models.Hubs{}).AddForeignKey("Hub_ID", "Announcements(Hub_Id)", "RESTRICT", "RESTRICT")
 }

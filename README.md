@@ -38,6 +38,21 @@ On Mac OS X you can also install the latest release via Homebrew:
 ###Install Packages and Dependencies
 `$ glide install`
 
+###Install and configure PostgreSQL
+`$ sudo apt-get update`
+`$ sudo apt-get install postgresql postgresql-contrib`
+Log in using the postgres account:
+'$ sudo -i -u postgres
+Create Superuser:
+`postgres@server:~$ createuser --interactive`
+Output:
+`Enter name of role to add: <yoursuperuser>
+Shall the new role be a superuser? (y/n) y`
+Now go to db_setup.go and replace <yoursuperuser> and <yoursudopassword> with respective values.
+Create a local database for Hermes:
+'postgres@server:~$ createdb hermes'
+For verification you can type psql hermes to check if the database is created.
+
 ###Setup Database
 `$ go build db_setup.go`
 `$ $GOPATH/<pathtohermes>/db_setup`
