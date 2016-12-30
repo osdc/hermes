@@ -48,7 +48,7 @@ Create Superuser:
 Output:
 `Enter name of role to add: <yoursuperuser>
 Shall the new role be a superuser? (y/n) y`
-Now go to db_setup.go and replace <yoursuperuser> and <yoursudopassword> with respective values.
+Now go to db_setup.go and api.go and replace <yoursuperuser> and <yoursudopassword> with respective values.
 Create a local database for Hermes:
 'postgres@server:~$ createdb hermes'
 For verification you can type psql hermes to check if the database is created.
