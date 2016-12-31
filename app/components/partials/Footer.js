@@ -8,7 +8,10 @@ const Footer = () =>
       <li className="list-item"><a href="https://raw.githubusercontent.com/osdc/hermes/master/AUTHORS">{ /* TODO: Add a modal-like display of contributors rather than redirecting to Github */ }Contributors</a></li>
       <li className="list-item">License: GPL-3.0</li>
     </ul>
-    <span className="bar-right">Made with ❤ by <a href="https://github.com/osdc">OSDC</a></span>
+    <div className="spacer" />
+    <div className="vertical-center text-center">
+      <span>Made with ❤ by <a href="https://github.com/osdc">OSDC</a></span>
+    </div>
   </div>;
 
 
