@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 
@@ -13,7 +14,7 @@ const Register = () =>
         <DatePicker selected={moment()} />
         <input type="text" placeholder="Password/PIN" />
         <button className="btn-accent">Register</button>
-        <a href="#" className="text-center text-accent">Login</a>
+        <Link to="/login" className="text-center text-accent">Login</Link>
       </div>
     </div>
   </div>

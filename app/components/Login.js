@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Login = () =>
   <div>
@@ -9,7 +10,7 @@ const Login = () =>
         <input type="text" placeholder="Password/PIN" />
         <button className="btn-accent">Login</button>
         <a href="#" className="text-center text-accent">Forgot Password</a>
-        <a href="#" className="text-center text-accent">Register</a>
+        <Link to="/register" className="text-center text-accent">Register</Link>
       </div>
     </div>
   </div>
