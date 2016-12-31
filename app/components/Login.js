@@ -8,8 +8,8 @@ const Login = () =>
         <input type="text" placeholder="Enrollment Number" />
         <input type="text" placeholder="Password/PIN" />
         <button className="btn-accent">Login</button>
-        <a href="#" className="text-center link-accent">Forgot Password</a>
-        <a href="#" className="text-center link-accent">Register</a>
+        <a href="#" className="text-center text-accent">Forgot Password</a>
+        <a href="#" className="text-center text-accent">Register</a>
       </div>
     </div>
   </div>

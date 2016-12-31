@@ -1,4 +1,5 @@
-$color-primary: rgba(33, 150, 243, 1);
-$color-accent: rgba(232, 72, 85, 1);
-$color-accent-light: rgba(232, 72, 85, 0.9);
-$color-footer: rgba(64, 63, 76, 1);
+$color-primary: #2196f3;
+$color-primary-dark: darken($color-primary, 20%);
+$color-accent: #e84855;
+$color-accent-dark: darken($color-accent, 20%);
+$color-footer: #403f4c;

@@ -5,7 +5,6 @@ import routes from '../routes';
 
 // Partials
 import Navbar from '../components/partials/Navbar';
-// import Header from '../components/partials/Header';
 import Footer from '../components/partials/Footer';
 
 export default class Root extends Component {

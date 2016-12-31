@@ -5,9 +5,9 @@ import Login from './components/Login';
 import Register from './components/Register'
 
 export default (
-	<div>
-		<Route path="/" component={Dashboard} />
-		<Route path="/login" component={Login} />
-		<Route path="/register" component={Register} />
-	</div>
+  <div>
+    <Route path="/" component={Dashboard} />
+    <Route path="/login" component={Login} />
+    <Route path="/register" component={Register} />
+  </div>
 );
