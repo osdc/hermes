@@ -1,5 +1,16 @@
 @import 'base';
-@import 'vars';
+
+.hermes {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  .content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+}
 
 .panel {
   border: 2px solid $color-primary;
@@ -15,22 +26,15 @@
   }
 }
 
-.text-primary {
-  color: $color-primary;
-}
-
-.footer {
-  background-color: $color-footer;
-}
-
 .focus {
   background-color: $color-accent;
+  border-bottom: 2px solid $color-accent-dark;
   padding: 4px;
   border-radius: 3px;
 }
 
 .navbar {
-  background-color: $color-primary;
+  background-color: $color-primary-dark;
 }
 
 .bar {
@@ -50,30 +54,36 @@
   }
 }
 
+.footer {
+  background-color: $color-footer;
+  & > .bar-right {
+    margin: 30px;
+  }
+}
+
 .visible-lg {
   visibility: hidden;
 }
 
 @media only screen and (min-width: 768px) {
-  .content > div {
-    display: flex;
-    flex-direction: row;
+  .content {
+    & > div {
+      display: flex;
+      flex-direction: row;
+    }
+    .width-main {
+      width: 75%;
+    }
+    .width-sidebar {
+      width: 25%;
+    }
+    .width-full {
+      width: 100%;
+    }
   }
 
   .visible-lg {
     visibility: visible;
-  }
-
-  .content .width-main {
-    width: 75%;
-  }
-
-  .content .width-sidebar {
-    width: 25%;
-  }
-
-  .content .width-full {
-    width: 100%;
   }
 }
 
@@ -97,10 +107,6 @@
   }
 }
 
-.footer > .bar-right {
-  margin: 30px;
-}
-
 .box-login {
   max-width: 400px;
   margin: auto;
@@ -115,25 +121,9 @@
 }
 
 .btn-accent {
-  background-color: $color-accent-light;
-  border: 1px solid $color-accent-light;
-  border-bottom: 3px solid $color-accent;
+  background-color: $color-accent;
+  border: 1px solid $color-accent;
+  border-bottom: 3px solid $color-accent-dark;
   border-radius: 5px;
   color: white;
-}
-
-.hermes {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-
-  .content {
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-}
-
-.link-accent {
-  color: $color-accent;
 }
