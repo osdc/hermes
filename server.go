@@ -1,15 +1,18 @@
 package main
 
 import (
-    "net/http"
-    "github.com/labstack/echo"
-    "github.com/labstack/echo/engine/standard"
+	"github.com/labstack/echo"
+	"github.com/wimpykid26/hermes/api"
+	"net/http"
 )
 
 func main() {
-    e := echo.New()
-    e.GET("/", func(c echo.Context) error {
-        return c.String(http.StatusOK, "Hello, World!")
-    })
-    e.Run(standard.New(":1323"))
+	e := echo.New()
+	e.GET("/insert_user", api.Insert_user)
+	e.GET("/insert_hub", api.Insert_hub)
+	e.GET("/insert_event", api.Insert_event)
+	e.GET("/", func(c echo.Context) error {
+		return c.String(http.StatusOK, "Hello, World!")
+	})
+	e.Logger.Fatal(e.Start(":1323"))
 }
