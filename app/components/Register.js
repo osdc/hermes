@@ -7,7 +7,7 @@ import 'style!css!react-datepicker/dist/react-datepicker.css';
 
 const Register = () =>
   <div>
-    <div className="width-full">
+    <div>
       <h1 className="text-primary text-center">Register</h1>
       <div className="box-login">
         <input type="text" placeholder="Enrollment Number" />
