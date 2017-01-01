@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const Login = () =>
   <div>
-    <div className="width-full">
+    <div>
       <h1 className="text-primary text-center">Login</h1>
       <div className="box-login">
         <input type="text" placeholder="Enrollment Number" />
