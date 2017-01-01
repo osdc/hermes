@@ -69,10 +69,6 @@
   }
 }
 
-.visible-lg {
-  visibility: hidden;
-}
-
 @media only screen and (min-width: 768px) {
   .content {
     & > div {
@@ -88,10 +84,6 @@
     .width-full {
       width: 100%;
     }
-  }
-
-  .visible-lg {
-    visibility: visible;
   }
 
   .bar {
