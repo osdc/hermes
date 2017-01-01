@@ -1,0 +1,38 @@
+.hermes {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  .content {
+    align-items: center;
+    display: flex;
+    flex: 1;
+  }
+  .container {
+    margin: auto;
+    max-width: 992px;
+    padding: 0 30px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .content {
+    & > div {
+      display: flex;
+      flex-direction: row;
+    }
+    .width-main {
+      width: 75%;
+    }
+    .width-sidebar {
+      width: 25%;
+    }
+  }
+}
+
+.navbar {
+  background-color: $color-primary-dark;
+}
+
+.footer {
+  background-color: $color-footer;
+}

@@ -1,0 +1,11 @@
+.box-login {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: 400px;
+  input, button {
+    font-size: 1.2em;
+    margin: 10px 0;
+    padding: 5px;
+  }
+}
