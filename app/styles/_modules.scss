@@ -1,0 +1,59 @@
+.bar {
+  align-items: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto Slab', serif;
+  div, li {
+    margin: 8px;
+    padding: 2px;
+  }
+  a:hover, a:link, a:visited, a:active {
+    color: white;
+    text-decoration: none;
+  }
+  & > ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+  }
+  .spacer {
+    display: none;
+  }
+
+  @media only screen and (min-width: 768px) {
+    flex-direction: row;
+    .spacer {
+      display: block;
+      flex-grow: 1;
+    }
+  }
+}
+
+.btn-accent {
+  background-color: $color-accent;
+  border: 1px solid $color-accent;
+  border-bottom: 3px solid $color-accent-dark;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.panel {
+  border: 2px solid $color-primary;
+  border-radius: 5px;
+  .panel-heading {
+    background-color: $color-primary;
+    color: #fff;
+    margin: 0;
+    padding: 5px;
+  }
+  .panel-body {
+    padding: 1em;
+  }
+}
+
+.focus {
+  background-color: $color-accent;
+  border-radius: 3px;
+  padding: 4px;
+}
