@@ -12,15 +12,15 @@
     color: white;
     text-decoration: none;
   }
-  & > ul {
+  ul {
     display: flex;
     list-style: none;
     padding-left: 0;
+    margin: 0;
   }
   .spacer {
     display: none;
   }
-
   @media only screen and (min-width: 768px) {
     flex-direction: row;
     .spacer {
@@ -56,4 +56,32 @@
   background-color: $color-accent;
   border-radius: 3px;
   padding: 4px;
+}
+
+#dropdown-trigger {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  #dropdown-trigger {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .dropdown-content {
+    display: none !important;
+    &.show {
+      display: flex !important;
+    }
+  }
+}
+
+.flex-row {
+  display: flex;
+  width: 100%;
+  .spacer {
+    display: block;
+    flex-grow: 1;
+  }
 }
