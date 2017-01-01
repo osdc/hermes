@@ -2,44 +2,34 @@ package models
 
 import (
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/sqlite"
+	"time"
 )
 
-type Users struct {
+type Hub struct {
 	gorm.Model
-	User_ID      int    `gorm:"AUTO_INCREMENT"`
-	Name         string `gorm:"primary_key"`
-	Batch        string
-	Is_master    string
-	EnrollmentNo string
-	Bio          string
+	Name  string
+	About string
+	Slug  string `gorm:"primary_key"`
 }
 
-type Hubs struct {
+type Event struct {
 	gorm.Model
-	Hub_ID int    `gorm:"AUTO_INCREMENT"`
-	Name   string `gorm:"primary_key"`
-	Bio    string
-}
-
-type Events struct {
-	gorm.Model
-	Event_ID    int    `gorm:"AUTO_INCREMENT"`
-	Name        string `gorm:"primary_key"`
+	Name        string
+	HubID       uint // TODO Add Foreign Key
 	Event       string
 	Description string
-	Date        string
+	Date        time.Time
 }
 
-type Announcements struct {
+type Announcement struct {
 	gorm.Model
-	HubId       int `gorm:"not null;unique"`
+	HubID       uint `gorm:"not null;unique"`
 	Description string
 }
 
-type Roles struct {
+type Role struct {
 	gorm.Model
-	UserId int `gorm:"not null;unique"`
-	HubId  int `gorm:"not null;unique"`
+	UserID uint `gorm:"not null;unique"`
+	HubID  uint `gorm:"not null;unique"`
 	Role   string
 }

@@ -1,10 +1,14 @@
 package api
 
+func hello () string {
+    return "hello"
+}
+/*
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
-	"github.com/wimpykid26/hermes/models"
+	"github.com/osdc/hermes/models"
 	"net/http"
 )
 
@@ -47,4 +51,4 @@ func Insert_event(c echo.Context) error {
 	description := c.QueryParam("description")
 	db.Create(&models.Events{Name: name, Event: event, Description: description, Date: date})
 	return c.String(http.StatusOK, "Inserted Event Successfully")
-}
+}*/
