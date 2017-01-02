@@ -58,12 +58,12 @@
   padding: 4px;
 }
 
-#dropdown-trigger {
+.dropdown-trigger {
   display: none;
 }
 
 @media only screen and (max-width: 768px) {
-  #dropdown-trigger {
+  .dropdown-trigger {
     display: block;
     position: absolute;
     right: 0;
