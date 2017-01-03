@@ -69,10 +69,10 @@
     right: 0;
     top: 0;
   }
-  .dropdown-content {
-    display: none !important;
+  div.dropdown-content {
+    display: none;
     &.show {
-      display: flex !important;
+      display: flex;
     }
   }
 }
