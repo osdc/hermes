@@ -23,13 +23,20 @@ const Navbar = () =>
         <li className="list-item"><a href="#">Events</a></li>
       </ul>
       <div className="spacer" />
-      <ul>
-        <li className="list-item"><a href="#"><span className="focus">{ /* TODO: Remove Hardcoded Value*/ }8</span></a></li>
-        <li className="list-item"><a href="#">Preferences</a></li>
-        <li className="list-item"><a href="#"> {/* TODO: Remove Harcoded Value */} Logout (Ujjwal Sharma)</a></li>
-      </ul>
+      { /* Check if user is logged in */
+        true ?
+        <ul>
+          <li className="list-item"><Link to="/login">Login</Link></li>
+          <li className="list-item"><Link to="/register">Register</Link></li>
+        </ul>
+        :
+        <ul>
+          <li className="list-item"><a href="#"><span className="focus">{ /* TODO: Remove Hardcoded Value*/ }8</span></a></li>
+          <li className="list-item"><a href="#">Preferences</a></li>
+          <li className="list-item"><a href="#"> {/* TODO: Remove Harcoded Value */} Logout (Ujjwal Sharma)</a></li>
+        </ul>
+      }
     </div>
   </div>;
-
 
 export default Navbar;
