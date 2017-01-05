@@ -12,7 +12,7 @@ const Register = () =>
       <div className="box-login">
         <input type="text" placeholder="Enrollment Number" />
         <DatePicker selected={moment()} />
-        <input type="text" placeholder="Password/PIN" />
+        <input type="password" placeholder="Password/PIN" />
         <button className="btn-accent">Register</button>
         <Link to="/login" className="text-center text-accent">Login</Link>
       </div>
