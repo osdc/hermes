@@ -17,8 +17,8 @@ func main() {
     }
 
 	e := echo.New()
-	e.POST("/insert_user", api.CreateUser)
-	e.POST("/auth_user", api.WebkioskAuth)
+	e.POST("/api/user/new", api.CreateUser)
+	e.POST("/api/user/webkioskauth", api.WebkioskAuth)
 	//e.GET("/insert_hub", api.Insert_hub)
 	//e.GET("/insert_event", api.Insert_event)
 	e.GET("/", func(c echo.Context) error {
