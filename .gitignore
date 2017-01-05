@@ -22,3 +22,6 @@ jspm_packages
 
 # Go vendor directory
 vendor/
+
+# Config File
+config/app.toml

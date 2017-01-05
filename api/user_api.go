@@ -10,9 +10,6 @@ import (
 
 func CreateUser(c echo.Context) error {
 
-	db := utils.GetDBConn()
-	defer db.Close()
-
 	payload := utils.ParseJSON(c.Request().Body)
 
 	name := payload["name"]
@@ -21,7 +18,10 @@ func CreateUser(c echo.Context) error {
 	password := payload["password"]
 	batch := payload["batch"]
 
-	user := models.User{Name: name, Email: email,
+	db := utils.GetDBConn()
+	defer db.Close()
+
+    user := models.User{Name: name, Email: email,
 		EnrollmentNo: enroll, Password: password,
 		Batch: batch}
 
@@ -29,4 +29,18 @@ func CreateUser(c echo.Context) error {
 
 	response := utils.SuccessResponse()
 	return c.JSON(http.StatusCreated, response)
+}
+
+func WebkioskAuth(c echo.Context) error {
+
+	payload := utils.ParseJSON(c.Request().Body)
+
+    enroll := payload["enrollment_number"]
+    password := payload["password"]
+    dob := payload["dob"]
+
+    utils.RequestWebkiosk(enroll, dob, password)
+
+    return c.JSON(http.StatusOK, utils.SuccessResponse())
+
 }

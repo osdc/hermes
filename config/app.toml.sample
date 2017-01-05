@@ -1,0 +1,4 @@
+[database]
+user = "postgres"
+name = "hermes"
+password = ""
