@@ -49,7 +49,7 @@ func SuccessResponse() map[string]string {
 	return response
 }
 
-func RequestWebkiosk(username, dob, password string) bool, string {
+func RequestWebkiosk(username, dob, password string) (bool, string) {
     // dob: dd-mm-yyyy
     // password should be url encoded
     password = url.QueryEscape(password)

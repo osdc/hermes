@@ -16,6 +16,7 @@ func CreateUser(c echo.Context) error {
 	enroll := payload["enrollment_number"]
 	password := payload["password"]
 	batch := payload["batch"]
+	dob := payload["dob"]
 
 	db := utils.GetDBConn()
 	defer db.Close()
@@ -27,8 +28,8 @@ func CreateUser(c echo.Context) error {
     authentic, msg := utils.RequestWebkiosk(enroll, dob, password)
 
     if !authentic {
-        response := make(map[string]string)
-        response["status"] = "Failed"
+        response := make(map[string]interface{})
+        response["status"] = "FAILED"
         response["error"] = msg
         return c.JSON(http.StatusUnauthorized, response)
     }
@@ -47,9 +48,17 @@ func WebkioskAuth(c echo.Context) error {
     password := payload["password"]
     dob := payload["dob"]
 
-    authentic := utils.RequestWebkiosk(enroll, dob, password)
+    authentic, msg := utils.RequestWebkiosk(enroll, dob, password)
 
-    response := make(map[string]string)
+    if !authentic {
+        response := make(map[string]interface{})
+        response["status"] = "FAILED"
+        response["error"] = msg
+        return c.JSON(http.StatusUnauthorized, response)
+    }
+
+
+    response := make(map[string]interface{})
     response["status"] = "OK"
     response["auth"] = authentic
 
