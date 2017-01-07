@@ -23,8 +23,8 @@ func main() {
     dbName := viper.GetString("database.name")
     dbPassword := viper.GetString("database.password")
 
-    databaseCredentials = fmt.Sprintf("user=%s dbname=%s sslmode=disable password=%s", dbUser, dbName, dbPassword)
-	db, err := gorm.Open("postgres", databaseCredentialss)
+    databaseCredentials := fmt.Sprintf("user=%s dbname=%s sslmode=disable password=%s", dbUser, dbName, dbPassword)
+		db, err := gorm.Open("postgres", databaseCredentials)
 
     if err != nil {
 		fmt.Println(err)

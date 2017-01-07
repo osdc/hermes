@@ -69,6 +69,6 @@ func RequestWebkiosk(username, dob, password string) (bool, string) {
     if err != nil {
         log.Fatal(err)
     }
-    fmt.Println(respBody)
+    fmt.Println(string(respBody[:]))
     return true, "error"
 }
