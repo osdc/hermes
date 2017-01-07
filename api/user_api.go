@@ -64,3 +64,37 @@ func WebkioskAuth(c echo.Context) error {
 
     return c.JSON(http.StatusOK, response)
 }
+
+func LoginUser(c echo.Context) error {
+    var user models.User
+
+    payload := utils.ParseJSON(c.Request().Body)
+
+    enroll := payload["enrollment_number"]
+    password := payload["password"]
+
+    db := utils.GetDBConn()
+    defer db.Close()
+
+    db.Where("enrollment_no = ? AND password = ?", enroll, password).First(&user)
+
+    if user.ID == 0 {
+        response := make(map[string]interface{})
+        response["status"] = "FAILED"
+        response["error"] = "Wrong Credentials"
+        return c.JSON(http.StatusUnauthorized, response)
+    }
+
+
+    response := make(map[string]interface{})
+    // TODO: Write Serializers
+    userData := make(map[string]interface{})
+    userData["name"] = user.Name
+    userData["id"] = user.ID
+    userData["email"] = user.Email
+    userData["batch"] = user.Batch
+    response["status"] = "OK"
+    response["user"] = userData
+
+    return c.JSON(http.StatusOK, response)
+}
