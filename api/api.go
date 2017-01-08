@@ -1,8 +1,9 @@
 package api
 
-func hello () string {
-    return "hello"
+func hello() string {
+	return "hello"
 }
+
 /*
 import (
 	"github.com/jinzhu/gorm"

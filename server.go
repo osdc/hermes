@@ -3,18 +3,18 @@ package main
 import (
 	"github.com/labstack/echo"
 	"github.com/osdc/hermes/api"
-    "github.com/spf13/viper"
+	"github.com/spf13/viper"
 	"net/http"
 )
 
 func main() {
-    viper.SetConfigName("app")
-    viper.AddConfigPath("config")
+	viper.SetConfigName("app")
+	viper.AddConfigPath("config")
 
-    err := viper.ReadInConfig()
-    if err != nil {
-        panic("cannot read config file")
-    }
+	err := viper.ReadInConfig()
+	if err != nil {
+		panic("cannot read config file")
+	}
 
 	e := echo.New()
 	e.POST("/api/user/new", api.CreateUser)

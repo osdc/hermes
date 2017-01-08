@@ -5,28 +5,28 @@ import (
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-    "github.com/spf13/viper"
+	"github.com/spf13/viper"
 
 	"github.com/osdc/hermes/models"
 )
 
 func main() {
-    viper.SetConfigName("app")
-    viper.AddConfigPath("config")
+	viper.SetConfigName("app")
+	viper.AddConfigPath("config")
 
-    err := viper.ReadInConfig()
-    if err != nil {
-        panic("Config file not found")
-    }
+	err := viper.ReadInConfig()
+	if err != nil {
+		panic("Config file not found")
+	}
 
-    dbUser := viper.GetString("database.user")
-    dbName := viper.GetString("database.name")
-    dbPassword := viper.GetString("database.password")
+	dbUser := viper.GetString("database.user")
+	dbName := viper.GetString("database.name")
+	dbPassword := viper.GetString("database.password")
 
-    databaseCredentials := fmt.Sprintf("user=%s dbname=%s sslmode=disable password=%s", dbUser, dbName, dbPassword)
-		db, err := gorm.Open("postgres", databaseCredentials)
+	databaseCredentials := fmt.Sprintf("user=%s dbname=%s sslmode=disable password=%s", dbUser, dbName, dbPassword)
+	db, err := gorm.Open("postgres", databaseCredentials)
 
-    if err != nil {
+	if err != nil {
 		fmt.Println(err)
 		panic("failed to connect database")
 	}
