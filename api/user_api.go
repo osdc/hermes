@@ -15,10 +15,11 @@ func CreateUser(c echo.Context) error {
 
 	name := payload["name"]
 	enroll := payload["enrollment_number"]
+	password := payload["password"]
 	batch := payload["batch"]
 	dob := payload["dob"]
 
-	password := []byte(payload["password"])
+	password := []byte(password)
 	hashedPassword, err := bcrypt.GenerateFromPassword(password, bcrypt.DefaultCost)
 	if err != nil {
 		panic(err)
