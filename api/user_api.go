@@ -19,7 +19,7 @@ func CreateUser(c echo.Context) error {
 	batch := payload["batch"]
 	dob := payload["dob"]
 
-	password := []byte(password)
+	password = []byte(password)
 	hashedPassword, err := bcrypt.GenerateFromPassword(password, bcrypt.DefaultCost)
 	if err != nil {
 		panic(err)
