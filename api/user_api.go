@@ -19,8 +19,9 @@ func CreateUser(c echo.Context) error {
 	batch := payload["batch"]
 	dob := payload["dob"]
 
-	password = []byte(password)
-	hashedPassword, err := bcrypt.GenerateFromPassword(password, bcrypt.DefaultCost)
+	bytePassword := []byte(password)
+	hashedPassword, err := bcrypt.GenerateFromPassword(bytePassword, bcrypt.DefaultCost)
+
 	if err != nil {
 		panic(err)
 	}
@@ -80,9 +81,9 @@ func LoginUser(c echo.Context) error {
 	db := utils.GetDBConn()
 	defer db.Close()
 
-	db.Where("enrollment_no = ?", enroll, password).First(&user)
+	db.Where("enrollment_no = ?", enroll).First(&user)
 
-	err = bcrypt.CompareHashAndPassword([]byte(user.password), []byte(password))
+	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 
 	if user.ID == 0 && err != nil {
 		response := make(map[string]interface{})

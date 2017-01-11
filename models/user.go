@@ -7,7 +7,7 @@ import (
 type User struct {
 	gorm.Model
 	Name         string
-	Email        string `gorm:"primary_key"`
+	Email        string
 	Password     string
 	Slug         string `gorm:"primary_key"`
 	Batch        string
