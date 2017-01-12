@@ -7,11 +7,11 @@ import (
 type User struct {
 	gorm.Model
 	Name         string
-	Email        string
+	Email        string `gorm:"unique"`
 	Password     string
 	Slug         string `gorm:"primary_key"`
 	Batch        string
-	EnrollmentNo string
+	EnrollmentNo string `gorm:"unique"`
 	About        string
 	IsMaster     bool `gorm:"default:false"`
 }
