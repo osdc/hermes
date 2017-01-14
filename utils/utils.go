@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strings"
 
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
@@ -49,26 +50,27 @@ func SuccessResponse() map[string]string {
 	return response
 }
 
-func RequestWebkiosk(username, dob, password string) (bool, string) {
-	// dob: dd-mm-yyyy
+func RequestWebkiosk(username, password string) (bool, string) {
 	// password should be url encoded
 	password = url.QueryEscape(password)
 
-	webkioskURL := "https://webkiosk.jiit.ac.in/CommonFiles/UserActionn.jsp?x=&txtInst=Institute&InstCode=JIIT&txtuType=Member+Type&UserType=S&txtCode=Enrollment+No&MemberCode=%s&DOB=DOB&DATE1=%s&txtPin=Password%%2FPin&Password=%s&BTNSubmit=Submit"
+	webkioskURL := "https://webkiosk.jiit.ac.in/CommonFiles/UserAction.jsp?txtInst=Institute&InstCode=JIIT&txtuType=Member%%20Type%%20&UserType=S&txtCode=Enrollment%%20No&MemberCode=%s&txtPin=Password%%2FPin&Password=%s&BTNSubmit=Submit"
 
-	reqURL := fmt.Sprintf(webkioskURL, username, dob, password)
+	reqURL := fmt.Sprintf(webkioskURL, username, password)
 
 	resp, err := http.Get(reqURL)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	// TODO: @dwaipayan FIXME: Make cases for successful login, invalid dob
-	//                         invalid password etc.
 	respBody, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(string(respBody[:]))
-	return true, "error"
+
+	if strings.Contains(string(respBody), "Invalid Password") {
+		return false, "Invalid Password"
+	}
+
+	return true, "Valid Credentials"
 }

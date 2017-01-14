@@ -31,8 +31,7 @@ func CreateUser(c echo.Context) error {
 
 	user := models.User{Name: name, EnrollmentNo: enroll, Password: string(hashedPassword), Batch: batch}
 
-	// authentic, msg := utils.RequestWebkiosk(enroll, dob, password)
-  authentic, msg := true, "TODO"
+	authentic, msg := utils.RequestWebkiosk(enroll, password)
 
 	if !authentic {
 		response := make(map[string]interface{})
@@ -53,9 +52,9 @@ func WebkioskAuth(c echo.Context) error {
 
 	enroll := payload["enrollment_number"]
 	password := payload["password"]
-	dob := payload["dob"]
+	// dob := payload["dob"]
 
-	authentic, msg := utils.RequestWebkiosk(enroll, dob, password)
+	authentic, msg := utils.RequestWebkiosk(enroll, password)
 
 	if !authentic {
 		response := make(map[string]interface{})
