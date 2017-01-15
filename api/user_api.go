@@ -17,7 +17,6 @@ func CreateUser(c echo.Context) error {
 	enroll := payload["enrollment_number"]
 	password := payload["password"]
 	batch := payload["batch"]
-	// dob := payload["dob"]
 
 	bytePassword := []byte(password)
 	hashedPassword, err := bcrypt.GenerateFromPassword(bytePassword, bcrypt.DefaultCost)
@@ -52,7 +51,6 @@ func WebkioskAuth(c echo.Context) error {
 
 	enroll := payload["enrollment_number"]
 	password := payload["password"]
-	// dob := payload["dob"]
 
 	authentic, msg := utils.RequestWebkiosk(enroll, password)
 

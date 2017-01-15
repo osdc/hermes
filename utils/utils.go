@@ -68,9 +68,17 @@ func RequestWebkiosk(username, password string) (bool, string) {
 		log.Fatal(err)
 	}
 
+	if strings.Contains(string(respBody), "PersonalFiles/ShowAlertMessageSTUD.jsp") || strings.Contains(string(respBody), "StudentPageFinal.jsp") {
+		return true, "Valid Credentials"
+	}
 	if strings.Contains(string(respBody), "Invalid Password") {
 		return false, "Invalid Password"
 	}
-
-	return true, "Valid Credentials"
+	if strings.Contains(string(respBody), "Login Account Locked") {
+		return false, "Account Locked"
+	}
+	if strings.Contains(string(respBody), "Wrong Member Type or Code") || strings.Contains(string(respBody), "correct institute name and enrollment") {
+		return false, "Invalid Enrollment Number"
+	}
+	return false, "Unknown Error"
 }
