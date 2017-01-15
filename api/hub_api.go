@@ -34,12 +34,10 @@ func CreateHub(c echo.Context) error {
 	return c.JSON(http.StatusCreated, response)
 }
 
-func ShowHub(c echo.Context) error {
+func GetHub(c echo.Context) error {
 	var hub models.Hub
 
-	payload := utils.ParseJSON(c.Request().Body)
-
-	slug := payload["slug"]
+	slug := c.Param("slug")
 
 	db := utils.GetDBConn()
 	defer db.Close()

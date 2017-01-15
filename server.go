@@ -25,7 +25,7 @@ func main() {
 
 	// Hub Actions
 	e.POST("/api/hub/new", api.CreateHub)
-	e.GET("/api/hub/show", api.ShowHub)
+	e.GET("/api/hub/:slug", api.GetHub)
 	e.GET("/api/hub", api.ShowHubs)
 
 	// Miscellaneous Actions
