@@ -9,7 +9,7 @@ type Hub struct {
 	gorm.Model
 	Name  string
 	About string
-	Slug  string `gorm:"primary_key"`
+	Slug  string `gorm:"not null;unique"`
 }
 
 type Event struct {

@@ -83,7 +83,7 @@ func LoginUser(c echo.Context) error {
 
 	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 
-	if user.ID == 0 && err != nil {
+	if user.ID == 0 || err != nil {
 		response := make(map[string]interface{})
 		response["status"] = "FAILED"
 		response["error"] = "Wrong Credentials"

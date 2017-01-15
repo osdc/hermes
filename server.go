@@ -17,11 +17,18 @@ func main() {
 	}
 
 	e := echo.New()
+
+	// User Actions
 	e.POST("/api/user/new", api.CreateUser)
-	e.POST("/api/user/webkioskauth", api.WebkioskAuth)
+	// e.POST("/api/user/webkioskauth", api.WebkioskAuth)
 	e.POST("/api/user/login", api.LoginUser)
-	//e.GET("/insert_hub", api.Insert_hub)
-	//e.GET("/insert_event", api.Insert_event)
+
+	// Hub Actions
+	e.POST("/api/hub/new", api.CreateHub)
+	e.GET("/api/hub/show", api.ShowHub)
+	e.GET("/api/hub", api.ShowHubs)
+
+	// Miscellaneous Actions
 	e.GET("/", func(c echo.Context) error {
 		return c.String(http.StatusOK, "Hello, World!")
 	})
