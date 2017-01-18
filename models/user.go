@@ -20,3 +20,14 @@ func (user *User) BeforeCreate(scope *gorm.Scope) error {
 	scope.SetColumn("Slug", "TODO")
 	return nil
 }
+
+func (user User) SerializeUser() map[string]interface{} {
+	userData := make(map[string]interface{})
+
+	userData["name"] = user.Name
+	userData["id"] = user.ID
+	userData["email"] = user.Email
+	userData["batch"] = user.Batch
+
+	return userData
+}

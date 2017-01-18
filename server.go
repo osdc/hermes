@@ -26,7 +26,7 @@ func main() {
 	// Hub Actions
 	e.POST("/api/hub/new", api.CreateHub)
 	e.GET("/api/hub/:slug", api.GetHub)
-	e.GET("/api/hub", api.ShowHubs)
+	e.GET("/api/hub", api.GetAllHubs)
 
 	// Miscellaneous Actions
 	e.GET("/", func(c echo.Context) error {

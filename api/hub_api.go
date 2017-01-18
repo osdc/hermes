@@ -53,12 +53,12 @@ func GetHub(c echo.Context) error {
 
 	response := make(map[string]interface{})
 	response["status"] = "OK"
-	response["hub"] = utils.SerializeHub(hub)
+	response["hub"] = hub.SerializeHub()
 
 	return c.JSON(http.StatusOK, response)
 }
 
-func ShowHubs(c echo.Context) error {
+func GetAllHubs(c echo.Context) error {
 	var hubs []models.Hub
 
 	db := utils.GetDBConn()
@@ -69,7 +69,7 @@ func ShowHubs(c echo.Context) error {
 	hubsData := make([]interface{}, len(hubs))
 
 	for i := 0; i < len(hubs); i++ {
-		hubsData[i] = utils.SerializeHub(hubs[i])
+		hubsData[i] = hubs[i].SerializeHub()
 	}
 
 	response := make(map[string]interface{})

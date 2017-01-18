@@ -93,7 +93,7 @@ func LoginUser(c echo.Context) error {
 	response := make(map[string]interface{})
 
 	response["status"] = "OK"
-	response["user"] = utils.SerializeUser(user)
+	response["user"] = user.SerializeUser()
 
 	return c.JSON(http.StatusOK, response)
 }
