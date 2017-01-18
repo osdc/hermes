@@ -52,14 +52,8 @@ func GetHub(c echo.Context) error {
 	}
 
 	response := make(map[string]interface{})
-	// TODO: Write Serializers
-	hubData := make(map[string]interface{})
-	hubData["name"] = hub.Name
-	hubData["id"] = hub.ID
-	hubData["about"] = hub.About
-	hubData["slug"] = hub.Slug
 	response["status"] = "OK"
-	response["hub"] = hubData
+	response["hub"] = utils.SerializeHub(hub)
 
 	return c.JSON(http.StatusOK, response)
 }
@@ -75,18 +69,10 @@ func ShowHubs(c echo.Context) error {
 	hubsData := make([]interface{}, len(hubs))
 
 	for i := 0; i < len(hubs); i++ {
-		hubData := make(map[string]interface{})
-
-		hubData["name"] = hubs[i].Name
-		hubData["id"] = hubs[i].ID
-		hubData["about"] = hubs[i].About
-		hubData["slug"] = hubs[i].Slug
-
-		hubsData[i] = hubData
+		hubsData[i] = utils.SerializeHub(hubs[i])
 	}
 
 	response := make(map[string]interface{})
-	// TODO: Write Serializers
 	response["status"] = "OK"
 	response["hubs"] = hubsData
 

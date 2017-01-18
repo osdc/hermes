@@ -91,14 +91,9 @@ func LoginUser(c echo.Context) error {
 	}
 
 	response := make(map[string]interface{})
-	// TODO: Write Serializers
-	userData := make(map[string]interface{})
-	userData["name"] = user.Name
-	userData["id"] = user.ID
-	userData["email"] = user.Email
-	userData["batch"] = user.Batch
+
 	response["status"] = "OK"
-	response["user"] = userData
+	response["user"] = utils.SerializeUser(user)
 
 	return c.JSON(http.StatusOK, response)
 }
