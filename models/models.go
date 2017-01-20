@@ -5,13 +5,6 @@ import (
 	"time"
 )
 
-type Hub struct {
-	gorm.Model
-	Name  string
-	About string
-	Slug  string `gorm:"primary_key"`
-}
-
 type Event struct {
 	gorm.Model
 	Name        string

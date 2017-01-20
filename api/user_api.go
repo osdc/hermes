@@ -83,7 +83,7 @@ func LoginUser(c echo.Context) error {
 
 	err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 
-	if user.ID == 0 && err != nil {
+	if user.ID == 0 || err != nil {
 		response := make(map[string]interface{})
 		response["status"] = "FAILED"
 		response["error"] = "Wrong Credentials"
@@ -91,14 +91,9 @@ func LoginUser(c echo.Context) error {
 	}
 
 	response := make(map[string]interface{})
-	// TODO: Write Serializers
-	userData := make(map[string]interface{})
-	userData["name"] = user.Name
-	userData["id"] = user.ID
-	userData["email"] = user.Email
-	userData["batch"] = user.Batch
+
 	response["status"] = "OK"
-	response["user"] = userData
+	response["user"] = user.Serialize()
 
 	return c.JSON(http.StatusOK, response)
 }
