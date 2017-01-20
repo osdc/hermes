@@ -9,7 +9,7 @@ type Hub struct {
 	Slug  string `gorm:"not null;unique"`
 }
 
-func (hub Hub) SerializeHub() map[string]interface{} {
+func (hub Hub) Serialize() map[string]interface{} {
 	hubData := make(map[string]interface{})
 
 	hubData["name"] = hub.Name

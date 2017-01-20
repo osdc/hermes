@@ -21,7 +21,7 @@ func (user *User) BeforeCreate(scope *gorm.Scope) error {
 	return nil
 }
 
-func (user User) SerializeUser() map[string]interface{} {
+func (user User) Serialize() map[string]interface{} {
 	userData := make(map[string]interface{})
 
 	userData["name"] = user.Name

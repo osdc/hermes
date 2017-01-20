@@ -53,7 +53,7 @@ func GetHub(c echo.Context) error {
 
 	response := make(map[string]interface{})
 	response["status"] = "OK"
-	response["hub"] = hub.SerializeHub()
+	response["hub"] = hub.Serialize()
 
 	return c.JSON(http.StatusOK, response)
 }
@@ -69,7 +69,7 @@ func GetAllHubs(c echo.Context) error {
 	hubsData := make([]interface{}, len(hubs))
 
 	for i := 0; i < len(hubs); i++ {
-		hubsData[i] = hubs[i].SerializeHub()
+		hubsData[i] = hubs[i].Serialize()
 	}
 
 	response := make(map[string]interface{})
