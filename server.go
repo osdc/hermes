@@ -1,10 +1,13 @@
 package main
 
 import (
-	"github.com/labstack/echo"
-	"github.com/osdc/hermes/api"
-	"github.com/spf13/viper"
 	"net/http"
+
+	"github.com/labstack/echo"
+	"github.com/labstack/echo/middleware"
+	"github.com/spf13/viper"
+
+	"github.com/osdc/hermes/api"
 )
 
 func main() {
@@ -17,6 +20,8 @@ func main() {
 	}
 
 	e := echo.New()
+
+	e.Use(middleware.CORS())
 
 	// User Actions
 	e.POST("/api/user/new", api.CreateUser)

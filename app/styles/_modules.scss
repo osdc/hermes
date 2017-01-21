@@ -41,11 +41,17 @@
 .panel {
   border: 2px solid $color-primary;
   border-radius: 5px;
+  margin: 5px 0;
   .panel-heading {
     background-color: $color-primary;
     color: #fff;
     margin: 0;
     padding: 5px;
+    display: flex;
+    .text-center {
+      flex-grow: 1;
+      margin: 5px 10px;
+    }
   }
   .panel-body {
     padding: 1em;

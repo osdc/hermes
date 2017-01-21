@@ -22,6 +22,7 @@
     "react-router-redux": "^4.0.4",
     "redux": "^3.5.2",
     "svg-react-loader": "^0.3.7",
+    "whatwg-fetch": "^2.0.2",
     "yarn": "^0.15.1"
   },
   "devDependencies": {
