@@ -92,8 +92,18 @@ func LoginUser(c echo.Context) error {
 
 	response := make(map[string]interface{})
 
+    redisClient := utils.GetRedisClient()
+    randomString := utils.GenRandStr(16)
+
+    // TODO: See what to set
+    err = redisClient.Set(randomString, "9", 0).Err()
+    if err != nil {
+        panic(err)
+    }
+
 	response["status"] = "OK"
 	response["user"] = user.Serialize()
+    response["token"] = randomString
 
 	return c.JSON(http.StatusOK, response)
 }

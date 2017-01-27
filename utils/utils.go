@@ -3,6 +3,7 @@ package utils
 import (
 	"encoding/json"
 	"fmt"
+    "math/rand"
 	"io"
 	"io/ioutil"
 	"log"
@@ -13,6 +14,7 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/spf13/viper"
+    "gopkg.in/redis.v5"
 )
 
 func GetDBConn() *gorm.DB {
@@ -31,6 +33,18 @@ func GetDBConn() *gorm.DB {
 	return db
 }
 
+func GetRedisClient() *redis.Client {
+
+    redisClient := redis.NewClient(&redis.Options{
+        Addr:     "localhost:6379",
+        Password: "", // no password set
+        DB:       0,  // use default DB
+    })
+
+    return redisClient
+
+}
+
 func ParseJSON(form io.Reader) map[string]string {
 
 	data := make(map[string]string)
@@ -42,6 +56,16 @@ func ParseJSON(form io.Reader) map[string]string {
 	}
 
 	return data
+}
+
+func GenRandStr(n int) string {
+    var letterRunes = []rune("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")
+
+    b := make([]rune, n)
+    for i := range b {
+        b[i] = letterRunes[rand.Intn(len(letterRunes))]
+    }
+    return string(b)
 }
 
 func SuccessResponse() map[string]string {
