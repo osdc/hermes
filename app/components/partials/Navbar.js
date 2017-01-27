@@ -30,7 +30,7 @@ class Navbar extends React.Component {
         <div className="dropdown-content flex-row">
           <ul>
             <li className="list-item"><Link to="/">Dashboard</Link></li>
-            <li className="list-item"><a href="#">Hubs</a></li>
+            <li className="list-item"><Link to="/hubs">Hubs</Link></li>
             <li className="list-item"><a href="#">Events</a></li>
           </ul>
           <div className="spacer" />

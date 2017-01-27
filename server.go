@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/http"
+
 	"github.com/labstack/echo"
 	"github.com/osdc/hermes/api"
 	"github.com/osdc/hermes/utils"
@@ -8,6 +10,9 @@ import (
 	"net/http"
     "fmt"
     "gopkg.in/redis.v5"
+
+	"github.com/labstack/echo/middleware"
+	"github.com/spf13/viper"
 
 )
 func ServerHeader(next echo.HandlerFunc) echo.HandlerFunc {
@@ -56,6 +61,8 @@ func main() {
 
     e.Use(AuthMiddleWare)
     e.Use(ServerHeader)
+	e.Use(middleware.CORS())
+
 	// User Actions
 	e.POST("/api/user/new", api.CreateUser)
 	// e.POST("/api/user/webkioskauth", api.WebkioskAuth)
