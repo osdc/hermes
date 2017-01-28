@@ -17,6 +17,6 @@ const Register = () =>
         <Link to="/login" className="text-center text-accent">Login</Link>
       </div>
     </div>
-  </div>
+  </div>;
 
 export default Register;
