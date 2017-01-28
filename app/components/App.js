@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Navbar from './partials/Navbar';
 import Footer from './partials/Footer';
 
-const App = React.createClass({
+class App extends Component {
+  constructor(props){
+      super(props);
+  }
   render() {
     return (
       <div className="hermes">
@@ -15,6 +18,9 @@ const App = React.createClass({
       </div>
     );
   }
-});
+}
+App.PropTypes = {
+    children : PropTypes.object.isRequired
+};
 
 export default App;
