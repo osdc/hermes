@@ -30,7 +30,8 @@ func CreateUser(c echo.Context) error {
 
 	user := models.User{Name: name, EnrollmentNo: enroll, Password: string(hashedPassword), Batch: batch}
 
-	authentic, msg := utils.RequestWebkiosk(enroll, password)
+	// authentic, msg := utils.RequestWebkiosk(enroll, password)
+	authentic, msg := true, "TODO"
 
 	if !authentic {
 		response := make(map[string]interface{})
@@ -92,18 +93,18 @@ func LoginUser(c echo.Context) error {
 
 	response := make(map[string]interface{})
 
-    redisClient := utils.GetRedisClient()
-    randomString := utils.GenRandStr(16)
+	redisClient := utils.GetRedisClient()
+	randomString := utils.GenRandStr(16)
 
-    // TODO: See what to set
-    err = redisClient.Set(randomString, "9", 0).Err()
-    if err != nil {
-        panic(err)
-    }
+	// TODO: See what to set
+	err = redisClient.Set(randomString, "9", 0).Err()
+	if err != nil {
+		panic(err)
+	}
 
 	response["status"] = "OK"
 	response["user"] = user.Serialize()
-    response["token"] = randomString
+	response["token"] = randomString
 
 	return c.JSON(http.StatusOK, response)
 }
