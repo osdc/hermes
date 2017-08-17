@@ -1,0 +1,89 @@
+{
+  "name": "osdc/hermes",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "Hermes",
+  "branch": "master",
+  "style": {
+    "name": "Humanist",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/LightBannerHeader",
+      "article": "article/ReaderArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "Athelas, Georgia, serif",
+    "heading": {
+      "fontWeight": 400,
+      "textTransform": "uppercase",
+      "letterSpacing": "0.1em"
+    },
+    "colors": {
+      "text": "#121212",
+      "background": "#fff",
+      "primary": "#ee5544",
+      "secondary": "#005499",
+      "highlight": "#00bd78",
+      "border": "#ddd",
+      "muted": "#f3f3f3"
+    },
+    "layout": {
+      "maxWidth": 768
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/osdc/hermes",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/hermes",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "hermes",
+      "subhead": "",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "hermes: ",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "osdc",
+          "repo": "hermes"
+        }
+      ],
+      "text": "v1.0.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "\n<p>Social Network for JIIT</p>\n<h2>Frontend</h2>\n<h3>Setup Dependencies</h3>\n<p>Run either <code>yarn install</code> or simply <code>yarn</code> to setup dependencies. Visit yarn&apos;s official <a href=\"https://yarnpkg.com/en/docs/install\">installation guide</a> for installating yarn.</p>\n<h3>Run Locally</h3>\n<p>The project already contains a fully-configured <code>webpack-dev-server</code> to run the frontend locally. Simply start it by firing up <code>yarn start</code> and visit <code>localhost:3000</code> on your browser.</p>\n<h3>Testing (Yet to be implemented)</h3>\n<p><code>yarn test</code></p>\n<h3>Linting using ESLint</h3>\n<p><code>yarn eslint</code></p>\n<h2>Backend</h2>\n<p>###Install Go\nDownload the archive from <a href=\"https://golang.org/dl/\">https://golang.org/dl/</a> and extract it into /usr/local, creating a Go tree in /usr/local/go. For example:\n<code>tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz</code>\nAdd /usr/local/go/bin to the PATH environment variable. You can do this by adding this line to your /etc/profile (for a system-wide installation) or $HOME/.profile:\n<code>export PATH=$PATH:/usr/local/go/bin</code>\nCreate a directory to contain your workspace, $HOME/work for example, and set the GOPATH environment variable to point to that location.\n<code>$ export GOPATH=$HOME/work</code>\nFor more Information visit the official installation guide <a href=\"https://golang.org/doc/install\">https://golang.org/doc/install</a></p>\n<p>###Install glide\nThe easiest way to install the latest release on Mac or Linux is with the following script:\ncurl <a href=\"https://glide.sh/get\">https://glide.sh/get</a> | sh\nOn Ubuntu Precise(12.04), Trusty (14.04), Wily (15.10) or Xenial (16.04)\n<code>sudo add-apt-repository ppa:masterminds/glide &amp;&amp; sudo apt-get update</code>\n<code>sudo apt-get install glide</code>\nOn Mac OS X you can also install the latest release via Homebrew:\n<code>$ brew install glide</code></p>\n<p>###Install Packages and Dependencies\n<code>$ glide install</code></p>\n<p>###Install and configure PostgreSQL\n<code>$ sudo apt-get update</code>\n<code>$ sudo apt-get install postgresql postgresql-contrib</code>\nLog in using the postgres account:\n&apos;$ sudo -i -u postgres\nCreate Superuser:\n<code>postgres@server:~$ createuser --interactive</code>\nOutput:\n<code>Enter name of role to add: &lt;yoursuperuser&gt;\nShall the new role be a superuser? (y/n) y</code>\nNow go to db_setup.go and api.go and replace  and  with respective values.\nCreate a local database for Hermes:\n&apos;postgres@server:~$ createdb hermes&apos;\nFor verification you can type psql hermes to check if the database is created.</p>\n<p>###Setup Database\n<code>$ go build db_setup.go</code>\n<code>$ $GOPATH/&lt;pathtohermes&gt;/db_setup</code></p>\n<p>###Running Server\n<code>$ go build server.go</code>\n<code>$ $GOPATH/&lt;pathtohermes&gt;/server</code>\nvisit <code>localhost:1323</code> on your browser.</p>\n<p>###Format using gofmt\n<code>$ gofmt -w &lt;yourfilename.go&gt;</code></p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/osdc/hermes",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/osdc",
+          "text": "osdc"
+        }
+      ]
+    }
+  ]
+}
